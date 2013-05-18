@@ -22,7 +22,7 @@ While [QA Direct](http://thomsonreuters.com/products_services/financial/financia
 
 Behind all the whiz-bang graphics and workflows of a tool like [QA Studio](http://im.thomsonreuters.com/solutions/quantitative-research-tools/qa-studio/) or ClariFI is exactly this sort of data surfacing. The availability of a complete set of R libraries to access the most commonly-used data in QA Direct allows clients to immediately unlock the data’s value. While our shrinkwrap quant desktop is QA Studio, we will still need to serve the market that has a large code base in R or similar tools and languages. It is the hope of this project that OQAD will help satisfy that need.
 
-OQAD is an effort to develop, test, and distribute of a set of open libraries, in R, for fundamentals, estimates, securities pricing, and macroeconomic data from QA Direct.  These libraries would lower the cost of entry for accessing QA Direct data and in crease time to market.
+OQAD is an effort to develop, test, and distribute of a set of open libraries, in R, for fundamentals, estimates, securities pricing, and macroeconomic data from QA Direct.  These libraries would lower the cost of entry for accessing QA Direct data.
 
 Thomson Reuters provides the source for this SDK, as is.  We hope that QA Direct customers will find these libraries useful and that some may even contribute to the project by providing feedback, bug reports, and best of all improvements and additions to the code. 
 
