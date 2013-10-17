@@ -1,0 +1,73 @@
+Package: rqad
+Type: Package
+Title: Retrieve data from QA Direct (Thomson Reuters) and manipulate it.
+Version: 0.4
+Maintainer: Sameena Shah <sameena.shah@thomsonreuters.com>, Ian MacGillivray
+    <ian.macgillivray@thomsonreuters.com>
+License: BSD
+Author: Sameena Shah <sameena.shah@thomsonreuters.com>, Ian MacGillivray
+    <ian.macgillivray@thomsonreuters.com>
+Description: Includes most commonly used functions for retrieving pricing data
+    and other company information from Thomson Reuters' QADirect product.
+LazyLoad: yes
+LazyData: false
+ZipData: no
+Date: 2012-11-28
+Depends:
+    R (>= 2.14.0),
+    RODBC,
+    sqldf,
+    matrixcalc,
+    data.table,
+    reshape,
+    reshape2,
+    zoo
+Collate:
+    'example.connection.r'
+    'get.adj.daily.close.r'
+    'get.coas.and.descriptions.r'
+    'get.currency.rates.r'
+    'get.current.betas.r'
+    'get.current.ratio.r'
+    'get.description.for.coa.r'
+    'get.dividends.payable.r'
+    'get.dividends.r'
+    'get.earnings.surprise.r'
+    'get.employees.r'
+    'get.eps.r'
+    'get.expense.ratio.total.percentage.r'
+    'get.gross.profit.r'
+    'get.gross.revenue.r'
+    'get.holidays.r'
+    'get.info.from.qad.r'
+    'get.info.from.rkd.r'
+    'get.licensed.tables.r'
+    'get.market.cap.r'
+    'get.net.profit.margin.r'
+    'get.net.sales.r'
+    'get.operating.margin.r'
+    'get.part.time.employees.r'
+    'get.pre.tax.margin.r'
+    'get.qad.connection.r'
+    'get.quick.ratio.r'
+    'get.reported.operating.profit.r'
+    'get.reported.return.on.assets.r'
+    'get.reported.return.on.equity.r'
+    'get.revenue.r'
+    'get.seccodes.for.ciks.r'
+    'get.seccodes.for.rics.r'
+    'get.sector.ibes.r'
+    'get.share.count.r'
+    'get.tangible.book.value.per.share.r'
+    'get.tier.1.capital.percentage.r'
+    'get.total.assets.r'
+    'get.total.cash.dividends.paid.r'
+    'get.total.debt.r'
+    'get.total.equity.r'
+    'get.total.liabilities.r'
+    'get.total.revenue.r'
+    'get.trade.dates.r'
+    'get.trading.dates.from.db.r'
+    'get.unadj.daily.close.r'
+    'get.underwriting.profit.r'
+    'set.qad.connection.r'
