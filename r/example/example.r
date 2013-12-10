@@ -18,7 +18,7 @@ start.date <- seq(min(alpha.dockets.qad.data$trade.date),by="-14 months",length.
 end.date <- seq(max(alpha.dockets.qad.data$trade.date),by="2 month",length.out=2)[2]
 price.dates <- seq(start.date, to=end.date, by="1 day")
 	
-# Get close information, stripping any date or seccode which is all blank, and save results
+# Get daily close information, stripping any date or seccode which is all blank, and save results
 seccodes <- unique(alpha.dockets.qad.data$seccode)
 adj.close <- get.adj.daily.close(price.dates,seccodes,per.seccode=1)
 adj.close <- adj.close[apply(is.na(adj.close),1,sum) < length(seccodes),apply(is.na(adj.close),2,sum) < length(price.dates)]
