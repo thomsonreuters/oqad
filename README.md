@@ -1,4 +1,4 @@
-![Thomson Reuters Logo](http://cdn1.im.thomsonreuters.com/wp-content/themes/Im/images/tr-logo.png)
+![Thomson Reuters](http://cdn1.im.thomsonreuters.com/wp-content/themes/Im/images/tr-logo.png)
 # Thomson Reuters QA Direct (QAD)
 
 > GENERATE ALPHA FASTER WITH ACCESS TO UNRIVALED CONTENT:
