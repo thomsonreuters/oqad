@@ -1,0 +1,19 @@
+<Query>
+    <QueryName>EquityIndexSearch</QueryName>
+    <SQL>
+    select * from DS2EQUITYINDEX  
+    where DSIndexMnem like '%SEARCH_TERM%%' 
+    order by IndexDesc
+    </SQL>
+    <Parameters>
+        <Parameter default="DJ">SEARCH_TERM</Parameter>
+    </Parameters>
+    <System>QA_DIRECT</System>
+    <Sources>Datastream</Sources>
+    <Description>
+      Look up a non-TR index based on a wildcard search.
+    </Description>
+</Query>
+
+
+

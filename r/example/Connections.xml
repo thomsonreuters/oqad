@@ -1,0 +1,13 @@
+<connections>
+	<connection name="QA_DIRECT">
+		<dsn>QADirect</dsn>
+		<username>JRandomUserName</username>
+		<password>JRUPassword</password>
+		<notes>
+      Set up ODBC connection to QA Direct, and put the DSN, username, and 
+      password in the appropriate XML elements, above. This code will NOT
+      work without a working ODBC setup (database connection is via the 
+      RODBC package).
+    </notes>
+	</connection>
+</connections>

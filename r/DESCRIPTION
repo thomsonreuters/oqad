@@ -21,6 +21,7 @@ Depends:
     data.table,
     reshape,
     reshape2,
+    XML,
     zoo
 Collate:
     'example.connection.r'
@@ -71,3 +72,10 @@ Collate:
     'get.unadj.daily.close.r'
     'get.underwriting.profit.r'
     'set.qad.connection.r'
+    'DataToMatrix.R'
+    'ExecuteQuery.R'
+    'ExecuteStandardQuery.R'
+    'QueryProcessor.R'
+    'ReplaceQueryParameters.R'
+    
+

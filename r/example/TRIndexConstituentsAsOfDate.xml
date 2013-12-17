@@ -1,0 +1,29 @@
+<Query>
+    <QueryName>TRIndexConstituentsAsOfDate</QueryName>
+    <SQL><![CDATA[
+    Select b.SecCode,b.StartDate, b.EndDate, C.SecName, ss.sharesclose,
+    sv.Close_,sv.ISOCurCode
+    from IdxTRInfo a 
+    join IdxTrConst b on a.idxcode = b.idxcode
+    join IdxTRSecInfo c on b.seccode = c.seccode
+    join IdxTRSecShares ss on b.seccode = ss.seccode and b.startdate = ss.startdate
+    join IdxTRSecVal sv on b.seccode = sv.seccode and b.startdate = sv.Date_
+    where a.RIC = '%RIC%'
+    and b. startdate <= '%POINT_DATE%'
+    and (b.enddate is null or b.enddate > '%POINT_DATE%')
+    order by C.SecName
+    ]]></SQL>
+    <Parameters>
+        <Parameter>RIC</Parameter>
+        <Parameter>POINT_DATE</Parameter>
+    </Parameters>
+    <System>QA_DIRECT</System>
+    <Sources>TR Indices tables</Sources>
+    <Description>
+      Find constituents for a TR index, as of a given date. Careful with these
+      TR indices tables...they do NOT have every index.
+    </Description>
+</Query>
+
+
+
