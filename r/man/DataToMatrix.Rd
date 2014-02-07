@@ -43,7 +43,7 @@ CONNECTION_FILE <- "C:/Development/rqad/Connections.xml"
 query1 <- QueryProcessor("QA_DIRECT",
    paste("select infocode,marketdate,Close_ from ds2primqtprc ",
      "where infocode = 65011 ",
-     "and marketdate between '2013-03-11' and '2013-02-22'",sep=""))
+     "and marketdate between '2013-03-11' and '2013-03-22'",sep=""))
 priceMatrix <- DataToMatrix(query1, 2, 1, 3)
 }
 }
