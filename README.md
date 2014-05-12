@@ -1,49 +1,154 @@
-![Thomson Reuters](http://cdn1.im.thomsonreuters.com/wp-content/themes/Im/images/tr-logo.png)
-# Thomson Reuters QA Direct (QAD)
+# About RQAD
+The RQAD package created by Sameena Shah, Ian MacGillivray and the Quantitative Methods group within Thomson Reuters Corporate R&D.   
 
-> GENERATE ALPHA FASTER WITH ACCESS TO UNRIVALED CONTENT:
->
-> Thomson Reuters quantitative research tools and solutions give you industry-leading content, comprehensive data management capabilities and sophisticated analytical tools to help you identify differentiated insights faster and increase profits
-> …
-> 
-> QA Direct maps information from all data vendors and allows you to access the data through the use of a single, unique identifier. Integration with other software and databases is easy, resulting in efficient data retrieval and analysis.
--- [QA Direct](http://im.thomsonreuters.com/solutions/quantitative-research-tools/qa-direct/)
+## Getting RQAD
 
-# Thomson Reuters Open SDKs for QAD
-While [QA Direct](http://thomsonreuters.com/products_services/financial/financial_products/a-z/QA_Direct/) does a great job of delivering [Thomson Reuters](http://www.thomsonreuters.com) (and third parties’) content to clients in an integrated yet flexible container, there is still a large amount of work users need to do to get that data into analytics platforms, of which the ["R" language](http://www.r-project.org) commands a large portion of the market.
+RQAD is a part of the Open QAD project.  You can either download a zipfile of all its sources, clone from it from its mercurial repository, or downlaod a pre-built package from CRAN.  
 
-Behind all the whiz-bang graphics and workflows of a tool like [QA Studio](http://im.thomsonreuters.com/solutions/quantitative-research-tools/qa-studio/) or ClariFI is exactly this sort of data surfacing. The availability of a complete set of R libraries to access the most commonly-used data in QA Direct allows clients to immediately unlock the data’s value. While our shrinkwrap quant desktop is QA Studio, we will still need to serve the market that has a large code base in R or similar tools and languages. It is the hope of this project that OQAD would satisfy that need.
+### CRAN
 
-OQAD is an effort to develop, test, and distribute of a set of open libraries, in R, for fundamentals, estimates, securities pricing, and macroeconomic data from QA Direct.  These libraries would lower the cost of entry for accessing QA Direct data.
+From within R:
 
-Thomson Reuters provides the source for this software, as is.  We hope that QA Direct customers will find these libraries useful and that some may even contribute to the project by providing feedback, bug reports, and best of all code additions and improvements. 
+	install.packages('rqad')
 
-This project offers an SDK for R today.  It is possible that other languages could be provided in the future, pending community interest and available resources.
-
-# Getting Started
-To work with this project, you can clone it from github, download a versioned archive.  
-
-Alternatively, If you simply wish to use the RQAD R package, you can install it from CRAN.
-
-	> install.packages("rqad")
+### From Source
 
 
-## Directory Structure
+#### OQAD on Github
+Link to github here…
 
-OQAD has the following directory structure:
+	$ git clone https://github.com/thomsonreuters/oqad.git
 
+#### Working with Source Code
+
+
+##### Directory Structure
 ```
-├── LICENSE.txt <- OQAD licnese
-├── NOTICE.txt <- OQAD notices
-├── R <- RQAD is here
-├── README.txt <- OQAD README
-├── java <- Not available, contributions welcome!
-├── python <- Not available, contributions welcome!
-└── sql <- Not available, contributions welcome
-
+...
+├── R
+│   ├── DESCRIPTION <- Instructions for R to build RQAD as a package
+│   ├── NAMESPACE <- R 3.0 namespace description
+│   ├── R <- RQAD source code
+│   ├── README.md <- This README
+│   ├── README.pdf<- Static PDF rendering of README.md
+│   ├── docs
+│   │   ├── QADODBC.md <- ODBC connection setup information
+│   │   ├── QADODBC.pdf <- Static PDF rendering of QAODBC.md
+│   │   ├── img <- image resources used by documentatoin
+│   │   ├── rqad_walkthrough.docx <- User guide, MS Word
+│   │   └── rqad_walkthrough.pdf <- User guide, PDF
+│   ├── example <- A quick example to test the functionality of RQAD
+│   │   ├── data
+│   │   │   └── example.docket.data.csv
+│   │   ├── example.r
+│   │   ├── output
+│   │   │   ├── alpha.dockets.qad.data.csv
+│   │   │   └── stock.prices.qad.data.csv
+│   │   └── prepare.qad.data.r
+│   ├── man <- Manual page documentation for RQAD
+│   └── rqad.Rproj <- R-Studio project file
+...
 ```
 
-## Working with RQAD
+#### Building the Package
+RQAD is best used as a package, although as you have the source available, you could simply load in files manually and use it that way. Because of external package dependencies, and also dependencies within the package, this is not recommended.
 
-See the [R/README](R/README.md) for how to get started with OQAD for R.
+R packages can be built via the command-line, and those comfortable with this process are welcome to use it, but we strongly recommend the use of RStudio as an IDE for R in general, and this document will show the build process using that tool.
+
+Select ``Project > Create Project`` from within [RStudio](http://www.rstudio.com), and choose ‘Existing Directory’ in the resulting popup.
+
+![R-Studio Create Project](docs/img/RStudioCreateProject.png "R-Studio Create Project")
+
+Select the (first) R subdirectory of the oqad directory you have just cloned or downloaded.
+
+![R-Studio Project Directory](docs/img/RStudioProjectDirectory.png "R-Studio Project Directory")
+
+Once the project is loaded, we still need to tell RStudio to build the source files, DESCRIPTION, and documentation into an R package, and then to load all of that into memory. Fortunately, this requires just one click, ``Build > Build & Reload``.
+
+![R-Studio Build Menu](docs/img/RStudioBuildMenu.png "R-Studio Build Menu")
+
+In the top-right you’ll see the build process. Warnings are generally fine and can be ignored, but errors will stop the process. In the console on the left you’ll see the package actually being loaded into your R environment once it has been built. 
+
+#### Dependencies
+RQAD has the folowing dependencies:
+
+* RODBC - <http://cran.r-project.org/web/packages/RODBC> (GPL-2 | GPL-3)
+* sqldf - <http://cran.r-project.org/web/packages/sqldf> (GPL-2)
+* matrixcalc - <http://cran.r-project.org/web/packages/matrixcalc> (GPL (≥ 2))
+* data.table - <http://cran.r-project.org/web/packages/data.table> (GPL (≥ 2))
+* reshape - <http://cran.r-project.org/web/packages/reshape> (MIT)
+* reshape2 - <http://cran.r-project.org/web/packages/reshape2> (MIT)
+* zoo - <http://cran.r-project.org/web/packages/zoo> (GPL-2)
+  
+For the most up to date dependecies see the "Depends:" section of the package "[DESCRIPTION](DESCRIPTION)" file.
+      
+These packages can be installed easily from CRAN, using the install.packages command. For example:
+
+	> install.packages("RODBC")
+	> install.packages('sqldf')
+	> install.packages('matrixcalc')
+	> install.packages('data.table')
+	> install.packages('reshape')
+	> install.packages('reshape2')
+	> install.packages('zoo')
+
+ 
+### Using RQAD
+
+One may browse the second R subdirectory to see a listing of all the function names in RQAD. To see what any function does, and how to use it, simply type 
+
+
+	> ?get.adj.daily.close
+
+![image](docs/img/rqad_doc__get.adj.daily.close.png "R-Studio Rendering of Doc")
+	
+in the R terminal. This will produce both a description of the function and its parameters, together with a self-contained snippet of code making use of the function.
+
+ 
+The example subdirectory contains a representative input file (in this case, legal data containing RICs and dates), and code to append market information from QAD to these entries. One can run through the commands in ``example.r`` to see RQAD in action.
+
+#### DB Connectivity
+
+In order to connect to the QAD database, you must define a database connection function that makes and ODBC connection to the QAD database you are authorized to use.
+
+You can define a function that returns a connection object, for example, see "example.connection.r". 
+Pass the function name to 
+	> set.qad.connection(example.connection.r)
+
+All getter functions that pull data from QAD will use the function  get.qad.connection() to get the connection object, or reget it if dropped. 
+ 
+
+See [docs/QADODBC.md](docs/QADODBC.md) for details about setting up an ODBC connection.
+
+#### Basic Queries
+
+The majority of functions in RQAD simply get information from QAD, for a given set of seccodes and dates, perhaps with some additional parameter. 
+
+The code for the (alphabetically) first function in RQAD, get.adj.daily.close, looks thus:
+
+
+	> seccodes <- c(33942,6245,55065,55138) 
+	> dates <- seq(as.Date("2011-01-01"),length.out=31,by="1 day")
+	> get.adj.daily.close(dates, seccodes, per.seccode=1)
+
+	
+This simply sets up one list of seccodes, sets up a range of dates, and calls the function to get adjusted daily closing prices. The output includes NA values for weekends and holidays, and these rows could easily be removed with the na.omit, or complete.cases R functions.
+
+QAD is a superset of many data sources, and as such contains many different identifiers and representations of entities which need to be mapped to one another in order to retrieve all necessary information. The primary identifier used in QAD is the ‘seccode’, and this is what query functions in RQAD expect.Mappings to seccodes from common identifiers can be found via the get.seccodes… commands in RQAD. For example:	> rics <- c("MS.N","MSFT.OQ","CARS.OQ")	> get.seccodes.for.rics(rics)| seccode  |      |  ric |
+There are many functions of a very similar format to this one.
+
+#### Mappings
+
+QAD is a superset of many data sources, and as such, unfortunately contains many different identifiers and representations of entities which need to be mapped to one another in order to retrieve all necessary information. The primary identifier used in QAD is the ‘seccode’, and this is what query functions in RQAD expect.
+Mappings to seccodes from common identifiers can be found via the get.seccodes… commands in RQAD. For example:
+
+	> rics <- c("MS.N","MSFT.OQ","CARS.OQ")
+	> get.seccodes.for.rics(rics)
+
+| seccode  |      |  ric |
+| -------- | -    | ---- |
+| 2268     | 47922 | MS.N    |
+| 9245     | 46692 | MSFT.OQ |
+| 22145    | 12129 | CARS.OQ |
+
 

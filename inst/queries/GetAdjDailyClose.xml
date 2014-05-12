@@ -1,0 +1,24 @@
+<Query>
+    <QueryName>GetAdjDailyClose</QueryName>
+    <SQL>
+	SELECT cast(P.MarketDate as Date) as date, Close_, Close_*CumAdjFactor as adj,s.seccode 
+	FROM SECMSTRX s 
+	JOIN SECMAPX t ON s.SECCODE=t.SECCODE AND t.VENTYPE=34 AND Type_=1 
+	join DS2PRIMQTPRC P ON t.VENCODE=p.INFOCODE 
+	JOIN DS2ADJ A ON A.INFOCODE=P.INFOCODE AND ADJTYPE=2 AND P.MARKETDATE BETWEEN ADJDATE AND ISNULL(ENDADJDATE,'06/06/2025') 
+	WHERE P.MarketDate between '%START_DATE%' and '%END_DATE%' 
+	and ExchIntCode in (12,135,145,244) and rank=1 and Close_ is not null
+    </SQL>
+    <Parameters>
+        <Parameter>START_DATE</Parameter>
+        <Parameter>END_DATE</Parameter>
+    </Parameters>
+    <System>QA_DIRECT</System>
+    <Sources>Datastream</Sources>
+    <Description>
+      Get Adjusted Close between start and end dates
+    </Description>
+</Query>
+
+
+

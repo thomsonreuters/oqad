@@ -1,0 +1,24 @@
+<Query>
+    <QueryName>EquityIndexSeries</QueryName>
+    <SQL>
+    SELECT E.DsIndexMnem,E.Region,E.IndexDesc,D.*
+    FROM DS2EQUITYINDEX E
+    JOIN DS2INDEXDATA D ON E.DSINDEXCODE = D.DSINDEXCODE
+    WHERE E.DSIndexMnem = '%INDEX_MNEMONIC%'
+    AND VALUEDATE BETWEEN '%START_DATE%' AND '%END_DATE%'
+    ORDER BY VALUEDATE
+    </SQL>
+    <Parameters>
+        <Parameter>INDEX_MNEMONIC</Parameter>
+        <Parameter>START_DATE</Parameter>
+        <Parameter>END_DATE</Parameter>
+    </Parameters>
+    <System>QA_DIRECT</System>
+    <Sources>Datastream</Sources>
+    <Description>
+      Pull a (non-Thomson Reuters) index series, using DsIndexMnem.
+    </Description>
+</Query>
+
+
+

@@ -1,0 +1,21 @@
+Package: rqad
+Type: Package
+Title: Retrieve data from QA Direct (Thomson Reuters) and manipulate it.
+Version: 0.4
+Maintainer: Sameena Shah <sameena.shah@thomsonreuters.com>
+License: BSD
+Author: Sameena Shah <sameena.shah@gmail.com>, Ian MacGillivray
+    <ianmacg@gmail.com>, Jeff Kenyon <jeff.kenyon@thomsonreuters.com>
+Description: Includes commonly used functions for retrieving pricing data
+    and other company information from Thomson Reuters' QADirect product.
+LazyLoad: yes
+LazyData: false
+ZipData: no
+Date: 2013-12-31
+Depends:
+    R (>= 2.14.0),
+    RODBC,
+    sqldf,
+    XML,
+    compiler,
+    reshape2

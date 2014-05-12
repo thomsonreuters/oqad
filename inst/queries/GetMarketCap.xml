@@ -1,0 +1,24 @@
+<Query>
+    <QueryName>GetMarketCap</QueryName>
+    <SQL>
+    SELECT R.SecCode AS seccode, V.ConsolMktVal AS mcap, V.ValDate AS date 
+    FROM qai.dbo.SECMSTRX R 
+    JOIN qai.dbo.SECMAPX P ON R.SECCODE=P.SECCODE AND P.VENTYPE=34 and Type_=1 
+    JOIN qai.dbo.Ds2MktVal V ON P.VenCode=V.infocode 
+    WHERE ValDate BETWEEN '%START_DATE%' AND '%END_DATE%'
+    AND R.SecCode=%SECCODE%
+    </SQL>
+    <Parameters>
+        <Parameter>START_DATE</Parameter>
+        <Parameter>END_DATE</Parameter>
+        <Parameter>SECCODE</Parameter>
+    </Parameters>
+    <System>QA_DIRECT</System>
+    <Sources>Datastream</Sources>
+    <Description>
+      Look up a market cap by seccode. Query updated to use SECMSTRX/SECMAPX.
+    </Description>
+</Query>
+
+
+
