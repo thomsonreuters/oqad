@@ -27,7 +27,7 @@ This site is being rebuilt using [Jeckyll Bootstrap](http://jekyllbootstrap.com/
 	  <li><a href="https://github.com/thomsonreuters/oqad/releases/tag/1.0.0">Latest Release <strong>1.0.0</strong></a></li>
       <li><a href="https://github.com/thomsonreuters/oqad">View On <strong>GitHub</strong></a></li>
     </ul>
-![image](http://cdn1.im.thomsonreuters.com/wp-content/themes/Im/images/tr-logo.png)
+![image](docs/img/logo_header.png)
 
 ## Thomson Reuters QA Direct (QAD)
 
