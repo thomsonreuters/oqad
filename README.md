@@ -1,4 +1,12 @@
-![Thomson Reuters](http://cdn1.im.thomsonreuters.com/wp-content/themes/Im/images/tr-logo.png)
+![Thomson Reuters](docs/img/log_header.png)
+
+# NOTICE: This software is provided as is..
+Development of this software is **on hold indefinitely**.  If you are interesting in furthering its development, please contact [John Duprey](https://github.com/jduprey), [Jeff Kenyon](https://github.com/jdkenyon), [Sameena Shah](https://github.com/sameenashah), or one of the [other contributors](https://github.com/thomsonreuters/oqad/graphs/contributors).
+
+Please **DO NOT** contact Thomson Reuters QAD support with any questions or issues related to the use of this software.
+
+Thank you.
+
 # Thomson Reuters QA Direct (QAD)
 
 > GENERATE ALPHA FASTER WITH ACCESS TO UNRIVALED CONTENT:
